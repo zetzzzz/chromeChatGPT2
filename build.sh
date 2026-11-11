@@ -57,7 +57,10 @@ fx = {
     "browser_specific_settings": {
         "gecko": {
             "id": "ai-chat-everywhere@zetzzzz.github.io",
-            "strict_min_version": "109.0"
+            "strict_min_version": "109.0",
+            "data_collection_permissions": {
+                "required": ["none"]
+            }
         }
     }
 }
