@@ -1,6 +1,6 @@
 body {
   width: 180px;
-  height: 212px;
+  height: 340px;
   overflow-x: hidden;
   overflow-y: scroll;
   background-color: #f7f7f8;
@@ -12,7 +12,7 @@ body {
   padding-left: 0px;
   margin: 0px;
   overflow-y: scroll;
-  height: 212px;
+  height: 340px;
 }
 li,
 .back,

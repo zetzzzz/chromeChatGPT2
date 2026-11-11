@@ -1,26 +1,46 @@
+// Cross-browser extension API shim: Firefox exposes `browser.*` (Promise-based),
+// Chrome/Chromium exposes `chrome.*` (callback-based). Firefox also supports
+// `chrome.*` for compatibility, so prefer `browser` when it exists.
+const extApi = (typeof browser !== "undefined" && browser.tabs && browser.windows)
+  ? browser
+  : chrome;
+
 document.addEventListener("DOMContentLoaded", function () {
   // Open chat in new tab
   const checkbox = document.getElementById("openInNewTab");
-  checkbox.checked = JSON.parse(localStorage.getItem("openInNewTab")) || false;
+  if (checkbox) {
+    try {
+      checkbox.checked = JSON.parse(localStorage.getItem("openInNewTab")) || false;
+    } catch (e) {
+      checkbox.checked = false;
+    }
 
-  function updateCheckboxState() {
-    localStorage.setItem("openInNewTab", checkbox.checked);
+    checkbox.addEventListener("change", function () {
+      try {
+        localStorage.setItem("openInNewTab", checkbox.checked);
+      } catch (e) {
+        // Storage unavailable (e.g. private mode); the checkbox still works
+        // for this popup session.
+      }
+    });
   }
-  checkbox.addEventListener("change", updateCheckboxState);
 
-  let listItems = document.querySelectorAll("li");
+  const listItems = document.querySelectorAll("li[data-website]");
   listItems.forEach((li) => {
-    li.addEventListener("click", function (event) { 
-      let website = this.getAttribute("data-website");
+    li.addEventListener("click", function (event) {
+      const website = this.getAttribute("data-website");
+      if (!website) return;
 
-      if (checkbox.checked) {
-        chrome.tabs.create({ url: website });
+      if (checkbox && checkbox.checked) {
+        extApi.tabs.create({ url: website });
       } else {
         event.preventDefault();
 
-        chrome.windows.create({
+        // 'panel' windows were removed from Chrome and never existed in
+        // Firefox; 'popup' works in both Chrome/Chromium and Firefox.
+        extApi.windows.create({
           url: website,
-          type: 'panel',
+          type: "popup",
           width: 700,
           height: 700,
           left: 0,

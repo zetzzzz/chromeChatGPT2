@@ -1,5 +1,14 @@
 [![N|Solid](screenshot.png)](https://#)
 
+## What's new in v1.6 (2026-11-11)
+
+- **New chatbots in the main menu:** Claude (claude.ai), DeepSeek (chat.deepseek.com), Muse (muse.ai) and Grok from X (grok.com) — alongside ChatGPT, Gemini, Copilot and Bing Image.
+- **All menus kept:** every chatbot and category from v1.5 is still there (Search Engine, Image Generators, Files & Spreadsheets, Face Swap, Music, Code, Prompts).
+- **Links updated to today's URLs:** DuckDuckGo AI now opens duck.ai, Suno now opens suno.com/create, Mistral's Le Chat is now called Mistral Vibe (same address, chat.mistral.ai), and Bagoodex now opens its successor Sigma AI (app.sigmabrowser.com).
+- **Removed:** Phind — the service shut down on 16 January 2026 and phind.com no longer works.
+- **Code updated for today's browsers:** the popup now opens chats in a `popup` window (the old `panel` type no longer exists in Chrome), and popup/background code now works with both the Chrome (`chrome.*`) and Firefox (`browser.*`) extension APIs.
+- **Releases:** v1.6 ships as two files — one for Chrome/Chromium (Manifest V3) and one for Firefox (Manifest V2, still supported by Mozilla). See Install below.
+
 ##Update Chrome version to match latest Firefox extension changes
 Hi! 👋
 First of all, thanks a lot for this great extension — I’ve been using it regularly and really appreciate your work.
@@ -16,7 +25,7 @@ Zetzzzz
 
 This extension provides easy access to a variety of AI chatbots and learning prompts, including support for:
 
-OpenAI ChatGPT, Google Gemini, Other popular chatbots and Free prompts.
+OpenAI ChatGPT, Google Gemini, Claude, DeepSeek, Muse, Grok (X), Microsoft Copilot, and other popular chatbots and Free prompts.
 
 
 Boost your productivity with:
@@ -29,7 +38,22 @@ IF IT WORKS FOR YOU, GIVE IT 5 STARS.
 
 ## Install
 
-*after installing and click on the pin to toolbar.
+Download the release file for your browser from the [Releases](https://github.com/zetzzzz/chromeChatGPT2/releases) page (v1.6):
+
+### Chrome / Chromium / Edge / Brave
+1. Unzip `ai-chat-everywhere-1.6-chrome.zip` to a folder.
+2. Open `chrome://extensions` (or `edge://extensions` / `brave://extensions`).
+3. Turn on **Developer mode** (top right).
+4. Click **Load unpacked** and select the unzipped folder.
+5. Click the puzzle icon in the toolbar and pin **Ai Chat everywhere**.
+
+### Firefox
+1. Unzip `ai-chat-everywhere-1.6-firefox.zip` to a folder.
+2. Open `about:debugging#/runtime/this-firefox`.
+3. Click **Load Temporary Add-on** and select the `manifest.json` file inside the unzipped folder. (Temporary add-ons are removed when Firefox closes; for a permanent install, the add-on must be signed through addons.mozilla.org.)
+4. Click the puzzle icon in the toolbar and pin **Ai Chat everywhere**.
+
+*After installing, click on the pin to toolbar.
 
 *If they restrict you، use VPN.
 
