@@ -11,6 +11,10 @@ This extension is a fork of [khzg/ChatGPT](https://github.com/khzg/ChatGPT) by K
 - **Code polish:** popup height raised to fit the longer menu, folder links get their own colour, `popup.html` declares UTF-8, and the new links were added to the daily history cleanup.
 - **Not carried over from upstream:** Phind and Bagoodex (both dead), the old Suno address, and upstream's `last1Run` typo that made history cleanup run on every load instead of once a day.
 
+## What's new in v1.7.2 (2026-11-12)
+
+- **Donation links now point to this fork:** every "Donate" link in the popup and on all category pages used to open the original author's Chrome Web Store / AMO listings. They now open this repository (https://github.com/zetzzzz/chromeChatGPT2), whose README carries the maintainer's USDT (BEP20) donation address. "AI ad" and "Add more ai" now open this repository's Issues page, and the original author's Instagram link was removed.
+
 ## What's new in v1.7.1 (2026-11-12)
 
 - **Scroll fix:** the popup had two nested scroll areas — the page body and the button list, both 380px tall with their own scroll — so the mouse wheel got stuck at the bottom of the buttons and the "open chat in new tab" checkbox below the list took several extra scrolls to reach. The list no longer scrolls on its own; the body is now the single scroll layer, with smooth scrolling.
@@ -41,22 +45,22 @@ IF IT WORKS FOR YOU, GIVE IT 5 STARS.
 
 ## Install
 
-Download the release file for your browser from the [Releases](https://github.com/zetzzzz/chromeChatGPT2/releases) page (v1.7.1):
+Download the release file for your browser from the [Releases](https://github.com/zetzzzz/chromeChatGPT2/releases) page (v1.7.2):
 
 ### Chrome / Chromium / Edge / Brave
-1. Unzip `ai-chat-everywhere-1.7.1-chrome.zip` to a folder.
+1. Unzip `ai-chat-everywhere-1.7.2-chrome.zip` to a folder.
 2. Open `chrome://extensions` (or `edge://extensions` / `brave://extensions`).
 3. Turn on **Developer mode** (top right).
 4. Click **Load unpacked** and select the unzipped folder.
 5. Click the puzzle icon in the toolbar and pin **Ai Chat everywhere**.
 
 ### Firefox
-1. Unzip `ai-chat-everywhere-1.7.1-firefox.zip` to a folder.
+1. Unzip `ai-chat-everywhere-1.7.2-firefox.zip` to a folder.
 2. Open `about:debugging#/runtime/this-firefox`.
 3. Click **Load Temporary Add-on** and select the `manifest.json` file inside the unzipped folder. (Temporary add-ons are removed when Firefox closes; for a permanent install, the add-on must be signed through addons.mozilla.org.)
 4. Click the puzzle icon in the toolbar and pin **Ai Chat everywhere**.
 
-In Firefox, clicking a chatbot opens it in the sidebar, next to the page you are on. (The signed .xpi for a permanent install is still the v1.6 one; v1.7 has not been submitted to AMO yet.)
+In Firefox, clicking a chatbot opens it in the sidebar, next to the page you are on. (The signed .xpi for a permanent install is still the v1.6 one; v1.7.1 has been submitted to AMO and is awaiting review.)
 
 *After installing, click on the pin to toolbar.
 
@@ -76,8 +80,4 @@ https://github.com/khzg/ChatGPT
 
 https://www.upwork.com/agencies/1699762909068050432/
 
-💝 donation($5 or more).
-
-(USDT BEP20): 0x2A4eE50b2bf51c38Fe66120695976be493FcE8fF
-
-(The donation is used to buy food)
+💝 donation(any amount). (USDT BEP20): 0xE66f642b76895eBbebe19393214dd61A659c0E82
