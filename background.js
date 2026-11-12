@@ -14,6 +14,7 @@ const linksToRemove = [
   "https://chat.deepseek.com/",
   "https://muse.ai/",
   "https://grok.com/",
+  "https://notebooklm.google.com/",
   "https://copilot.microsoft.com/",
   "https://www.bing.com/images/create/",
   "https://duck.ai",
@@ -28,7 +29,15 @@ const linksToRemove = [
   "https://www.blackbox.ai",
   "https://suno.com/create",
   "https://app.suno.ai/create/",
-  "https://www.udio.com/create"
+  "https://www.udio.com/create",
+  "https://github.com/features/copilot",
+  "https://cursor.com/",
+  "https://n8n.io/",
+  "https://devin.ai/",
+  "https://zonerai.com/en",
+  "https://www.midjourney.com/",
+  "https://bfl.ai/",
+  "https://elevenlabs.io/"
 ];
 
 // Function to delete specific history URLs

@@ -1,9 +1,9 @@
 #!/bin/sh
-# Build release zips for Ai Chat everywhere v1.6.
+# Build release zips for Ai Chat everywhere v1.7.1.
 # Usage: ./build.sh
 # Output:
-#   dist/ai-chat-everywhere-1.6-chrome.zip   (Manifest V3, Chrome/Chromium/Edge/Brave)
-#   dist/ai-chat-everywhere-1.6-firefox.zip  (Manifest V2, Firefox — MV2 is still
+#   dist/ai-chat-everywhere-1.7.1-chrome.zip   (Manifest V3, Chrome/Chromium/Edge/Brave)
+#   dist/ai-chat-everywhere-1.7.1-firefox.zip  (Manifest V2, Firefox — MV2 is still
 #                                             supported by Mozilla with no end date
 #                                             announced; the MV3 service-worker form
 #                                             is not used for Firefox here because
@@ -46,6 +46,12 @@ fx = {
     "browser_action": {
         "default_icon": "icon.png",
         "default_popup": "popup.html"
+    },
+    "sidebar_action": {
+        "default_title": "Ai Chat everywhere",
+        "default_panel": "popup.html",
+        "default_icon": "icon.png",
+        "browser_style": False
     },
     "permissions": ["storage", "history", "<all_urls>"],
     "background": {

@@ -5,6 +5,20 @@ const extApi = (typeof browser !== "undefined" && browser.tabs && browser.window
   ? browser
   : chrome;
 
+// Open a chatbot in a popup window (Chrome, and Firefox fallback).
+function openPopupWindow(website) {
+  // 'panel' windows were removed from Chrome and never existed in
+  // Firefox; 'popup' works in both Chrome/Chromium and Firefox.
+  extApi.windows.create({
+    url: website,
+    type: "popup",
+    width: 700,
+    height: 700,
+    left: 0,
+    top: 10
+  });
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   // Open chat in new tab
   const checkbox = document.getElementById("openInNewTab");
@@ -33,19 +47,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
       if (checkbox && checkbox.checked) {
         extApi.tabs.create({ url: website });
+      } else if (typeof browser !== "undefined" && browser.sidebarAction && browser.sidebarAction.open) {
+        // Firefox sidebar: open the chatbot next to the current page,
+        // like upstream khzg/ChatGPT ver 19. Fall back to a popup
+        // window if the sidebar API is unavailable or fails.
+        event.preventDefault();
+        browser.sidebarAction.open()
+          .then(function () { return browser.sidebarAction.setPanel({ panel: website }); })
+          .catch(function () { openPopupWindow(website); });
       } else {
         event.preventDefault();
-
-        // 'panel' windows were removed from Chrome and never existed in
-        // Firefox; 'popup' works in both Chrome/Chromium and Firefox.
-        extApi.windows.create({
-          url: website,
-          type: "popup",
-          width: 700,
-          height: 700,
-          left: 0,
-          top: 10
-        });
+        openPopupWindow(website);
       }
     });
   });
